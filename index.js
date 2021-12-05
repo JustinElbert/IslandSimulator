@@ -17,7 +17,7 @@ scene.background =  new THREE.Color(0xFAFAFA);
 // Camera
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 1, 1000);
 camera.position.z = 5;
-camera.position.y = 200;
+camera.position.y = 0;
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ AntiAlias : true });
@@ -298,12 +298,6 @@ function animate(){
 
         controls.moveRight( - velocity.x * delta );
         controls.moveForward( - velocity.z * delta );
-        
-        if(controls.isLocked === false){
-            velocity.y -= direction.y * 4.0 * delta;
-
-            controls.canJump(velocity.y * delta); 
-        }
     }
     prevTime = time;
 }
